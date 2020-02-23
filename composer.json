@@ -1,0 +1,25 @@
+{
+    "name": "abenavides/zinobetest",
+    "description": "Zinobe test backend php",
+    "type": "project",
+    "require": {
+        "illuminate/database": "^8.0@dev",
+        "firebase/php-jwt": "dev-master",
+        "eftec/routeone": "^1.9@dev",
+        "eftec/bladeone": "^3.36@dev",
+        "eftec/validationone": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandra Benavides",
+            "email": "alexandra.benavides@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
