@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport"
+ content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Search</title>
+
+</head>
+<body>
+<a href="<?php echo static::e(router()->getCurrentUrl()); ?>/User/List">Regresar</a>
+<a href="<?php echo static::e(router()->getCurrentUrl()); ?>/User/Logout">Salir</a>
+<div>
+ <h1>Busqueda de usuarios <?php echo static::e(isset($_SESSION["search_value"])?$_SESSION["search_value"]:""); ?></h1>
+ <table class="table">
+ <thead>
+ <tr>
+ <th>Id</th>
+ <th>Cargo</th>
+ <th>Email</th>
+ <th>Nombre</th>
+ <th>Apellido</th>
+ <th>Documento</th>
+ <th>Número de Teléfono</th>
+ <th>País</th>
+ <th>Estado</th>
+ <th>Ciudad</th>
+ </tr>
+ </thead>
+ <tbody>
+ <?php $__currentLoopData = $customers; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $customer): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <tr>
+ <td><?php echo static::e($customer['id']); ?></td>
+ <td><?php echo static::e($customer['job_title']); ?></td>
+ <td><?php echo static::e($customer['email']); ?></td>
+ <td><?php echo static::e($customer['first_name']); ?></td>
+ <td><?php echo static::e($customer['last_name']); ?></td>
+ <td><?php echo static::e($customer['document']); ?></td>
+ <td><?php echo static::e($customer['phone_number']); ?></td>
+ <td><?php echo static::e($customer['country']); ?></td>
+ <td><?php echo static::e($customer['state']); ?></td>
+ <td><?php echo static::e($customer['city']); ?></td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
+
+ </table>
+</div>
+
+</body>
+</html>
