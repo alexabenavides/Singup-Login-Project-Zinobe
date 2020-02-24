@@ -1,60 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>User List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search</title>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+    <link rel="stylesheet" href="{{ router()->getCurrentUrl() }}/resources/css/style.css">
 </head>
 <body>
+<a href="{{ router()->getCurrentUrl() }}/User/Logout">Salir</a>
+<div class="login-wrap">
+    <h1>Busqueda</h1>
+    <form method="post" class="customer-form login-form" action="{{ router()->getCurrentUrl() }}/CustomerData/Index">
+
+        <div class="group">
+            <input id="search" name="search" type="text" class="input" data-type="search"
+                   placeholder="Email o Documento">
+        </div>
+
+        <div class="group">
+            <input type="submit" class="button" value="Buscar">
+        </div>
 
 
-<form class="border border-light p-5" method="post">
-
-    <div class="text-center">
-        <p class="h4 mb-4">Información de los usuarios</p>
-    </div>
-
-    <div class="group">
-        <input data-type="search" name="search" placeholder="Email o Nombre"  id="search" class="input">
-        @if(valid()->getMessageId('search')->countError())
-            <div class="text-danger">{{valid()->getMessageId('search')->first()}}<br></div>
-        @endif()
-        <a href="../CustomerData/index/" class="btn btn-info" type="submit">Buscar</a>
-    </div>
-
-
-
-    <ul class="list-group">
-        @foreach(valid()->messageList->allArray() as $k)
-            <li class="list-group-item">{{$k}}</li>
-        @endforeach
-    </ul>
-</form>
+    </form>
+</div>
 </body>
 </html>
 
-{{--
-<table class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>User</th>
-        <th>Title</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($tickets as $ticket)
-        <tr>
-            <td>{{$ticket['IdTicket']}}</td>
-            <td>{{$ticket['User']}}</td>
-            <td>{{$ticket['Title']}}</td>
-        </tr>
-    @endforeach
-    </tbody>
 
-</table>--}}

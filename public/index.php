@@ -2,20 +2,10 @@
 
 use eftec\bladeone\BladeOne;
 use eftec\routeone\RouteOne;
-use eftec\ValidationOne;
 
 require "vendor/autoload.php";
 include "config/database.php";
 
-// validation
-function valid()
-{
-	global $valid;
-	if ($valid === null) {
-		$valid = new ValidationOne();
-	}
-	return $valid;
-}
 
 // views
 function blade()
@@ -24,7 +14,7 @@ function blade()
 	$views = getcwd() . '\resources\views';
 
 	if ($blade === null) {
-		$blade = new BladeOne($views,'compiledViews', BladeOne::MODE_DEBUG);
+		$blade = new BladeOne($views, 'compiledViews', BladeOne::MODE_DEBUG);
 
 	}
 	return $blade;
